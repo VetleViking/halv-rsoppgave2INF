@@ -6,22 +6,17 @@ const Utstyr = require("./models/Utstyr");
 Utstyr.init(sequelizeDB);
 Utstyr.sync({force: true});
 
-
+app.use(express.json());
 app.use(express.static('public'))
 
-app.get('/i', async (req, res) => {
-  
-  let kul = Math.floor(Math.random() * 2);
-  if (kul == 1) {
-    kul = true;
-  } else {
-    kul = false;
-  }
+app.post('/i', async (req, res) => {
+  console.log(req);
   Utstyr.create({
-    name: "Sykkel",
-    kul: kul
+    name: req.body.name,
+    hylle: req.body.hylle,
+    rad: req.body.rad
   });
-  res.send(await Utstyr.findOne({where: {name : "Sykkel"}, order: [ [ 'id', 'DESC' ]]}))
+  res.send(await Utstyr.findOne({where: {name : req.body.name}, order: [ [ 'id', 'DESC' ]]}))
 })
  
 app.get('/test', async (req, res) => {

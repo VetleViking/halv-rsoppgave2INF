@@ -7,10 +7,29 @@ module.exports = class Utstyr extends Model {
                 type: DataTypes.STRING, 
                 defaultValue: "Sykkel"
             }, 
-            kul: {
-                type: DataTypes.BOOLEAN,
+            id: {
+                type: DataTypes.INTEGER,
+                primaryKey: true
+            },
+            hylle: {
+                type: DataTypes.INTEGER
+            },
+            rad: {
+                type: DataTypes.INTEGER
+            },
+            utleid: {
+                type: DataTypes.BOOLEAN, 
                 defaultValue: false
-            }
+            },
+            utlånsdato: {
+                type: DataTypes.DATEONLY
+            },
+            ansvarlig: {
+                type: DataTypes.STRING
+            },
+            låntaker: {
+                type: DataTypes.STRING
+            },
         },
         {
             tableName: "Utstyr",

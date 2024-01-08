@@ -1,13 +1,23 @@
 document.getElementById("btn").addEventListener("click", async function() {
-    let test = await fetch("/i")
-    
-    let erKul = await test.json().then(response => response.kul)
+    let navn = document.getElementById("navn").value;
+    let hylle = document.getElementById("hylle").value;
+    let rad = document.getElementById("rad").value;
 
-    if (erKul) {
-        document.getElementById("sykkel").innerHTML = "Kul! :)"
-    } else {
-        document.getElementById("sykkel").innerHTML = "Neu :("
-    }
+    let utstyr = await fetch("/i", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: navn,
+            hylle: hylle,
+            rad: rad
+        })
+    });
+
+    utstyr = await utstyr.json();
+    console.log(utstyr.name);
+
 });
 document.getElementById("btn2").addEventListener("click", async function() {
     let slettet = await fetch("/test");

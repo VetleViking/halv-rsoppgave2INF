@@ -1,39 +1,20 @@
-document.getElementById("btn").addEventListener("click", async function() {
-    let navn = document.getElementById("navn").value;
-    let hylle = document.getElementById("hylle").value;
-    let rad = document.getElementById("rad").value;
+function createListItem(element) {
+    let html = document.createElement("div");
 
-    let utstyr = await fetch("/i", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name: navn,
-            hylle: hylle,
-            rad: rad
-        })
-    });
+    let utleid = "Dunno";
+    if (element.utleid) {
+        utleid = "Ja";
+    } else {
+        utleid = "Nei";
+    }
 
-    utstyr = await utstyr.json();
-    console.log(utstyr.name);
+    html.innerHTML = `
+    <div class="listItem"><p>${element.name}</p></div>
+    <div class="listItem"><p>${element.id}</p></div>
+    <div class="listItem"><p>${utleid}</p></div>`
 
-});
-document.getElementById("btn2").addEventListener("click", async function() {
-    let slettet = await fetch("/test");
-    slettet = await slettet.json();
+    html.classList.add("listDiv");
 
-    let slettetTing = document.createElement("p");
-    slettetTing.innerHTML ="Dette var slettet:";
-    document.getElementById("sykkel2").appendChild(slettetTing);
-
-    slettet.forEach(element => {
-        console.log(element.name);
-        let slettetTing = document.createElement("p");
-        slettetTing.innerHTML = element.name + ", den var " + (element.kul ? "kul" : "ikke kul");
-        document.getElementById("sykkel2").appendChild(slettetTing);
-
-        
-    });
-    console.log(slettet);
-});
+    document.getElementById("allEquipment").appendChild(html);
+    return html;
+}

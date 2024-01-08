@@ -4,13 +4,13 @@ const port = 3000
 const sequelizeDB = require("./database.js");
 const Utstyr = require("./models/Utstyr");
 Utstyr.init(sequelizeDB);
-Utstyr.sync({force: true});
+Utstyr.sync();
+//{force: true} hvis jeg trenger det
 
 app.use(express.json());
 app.use(express.static('public'))
 
-app.post('/i', async (req, res) => {
-  console.log(req);
+app.post('/add', async (req, res) => {
   Utstyr.create({
     name: req.body.name,
     hylle: req.body.hylle,
@@ -18,16 +18,19 @@ app.post('/i', async (req, res) => {
   });
   res.send(await Utstyr.findOne({where: {name : req.body.name}, order: [ [ 'id', 'DESC' ]]}))
 })
+
+app.get('/get/:id', async (req, res) => {
+  res.send(await Utstyr.findOne({where: {id : req.params.id}}))
+})
+
+app.get('/delete/:id', async (req, res) => {
+  await Utstyr.destroy({where: {id : req.params.id}})
+  res.send("OK")
+})
  
-app.get('/test', async (req, res) => {
-  let slettet = await Utstyr.findAll({where: {name : "Sykkel"}});
-  await Utstyr.destroy({
-    where: {
-      name: "Sykkel"
-    },
-  });
-  
-  res.send(slettet)
+app.get('/all', async (req, res) => {
+  let all = await Utstyr.findAll();
+  res.send(all)
 })
 
 app.listen(port, () => {

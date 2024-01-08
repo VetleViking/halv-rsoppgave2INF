@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
 </head>
 <body>
     <a href="index.html">Index</a>
     <a href="fjernUtstyr.html">Fjern utstyr</a>
-    <div>
-        <div id="btn">trykk</div>
-        <input type="text" placeholder="Navn" id="navn"/>
-        <input type="text" placeholder="Hylle" id="hylle"/>
-        <input type="text" placeholder="Rad" id="rad"/>    
+    <div class="removeItemsBox">
+    <div class="headerRemoveItems">
+        <p>Navn</p>
+        <p>Id</p>
+        <p>Utlånt</p>
     </div>
+        <div class="allEquipment" id="allEquipment">
 
-    
+        </div>
+    </div>
+    <div id="yesBtn">Fjern</div>
+    <div id="noBtn">Tilbake</div>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/fjernValgt.js"></script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+.removeItemsBox {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.headerRemoveItems {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.listDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}

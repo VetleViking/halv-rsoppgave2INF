@@ -5,10 +5,12 @@
 
 .headerRemoveItems {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 0px 20px;
 }
 
 .listDiv {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 0px 20px;
 }

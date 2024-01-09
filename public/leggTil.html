@@ -13,9 +13,12 @@
         <a href="utlån.html">Utlån</a>
         <a href="loginAdmin.html">Legg til / fjern utstyr </a>
         <div>
-            <input type="text" placeholder="Navn" id="name" />
-            <input type="text" placeholder="Hylle" id="shelf" />
-            <input type="text" placeholder="Rad" id="row" />
+            <p>Navn</p>
+            <input type="text" placeholder="Navn på utstyr" id="name" />
+            <p>Hylle</p>
+            <input type="text" placeholder="Hylle oppgitt i tall" id="shelf" pattern="[0-9]*"/>
+            <p>Rad</p>
+            <input type="text" placeholder="Rad oppgitt i tall" id="row" pattern="[0-9]*"/>
             <div id="btn">Legg til</div>
         </div>
 

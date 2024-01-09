@@ -4,8 +4,7 @@ module.exports = class Utstyr extends Model {
     static init(sequelize) {
         return super.init({
             name: {
-                type: DataTypes.STRING, 
-                defaultValue: "Sykkel"
+                type: DataTypes.STRING
             }, 
             id: {
                 type: DataTypes.INTEGER,
@@ -22,7 +21,8 @@ module.exports = class Utstyr extends Model {
                 defaultValue: false
             },
             utlånsdato: {
-                type: DataTypes.DATEONLY
+                type: DataTypes.DATEONLY,
+                european: true
             },
             ansvarlig: {
                 type: DataTypes.STRING

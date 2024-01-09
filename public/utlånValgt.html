@@ -4,6 +4,33 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/reset.css" />
     </head>
-    <body></body>
+    <body>
+        <a href="index.html">Index</a>
+        <a href="innlevering.html">Innlevering</a>
+        <a href="utlån.html">Utlån</a>
+        <a href="loginAdmin.html">Legg til / fjern utstyr </a>
+
+        <p>Er dette riktig?</p>
+        <div class="removeItemsBox">
+            <div class="headerRemoveItems">
+                <p>Navn</p>
+                <p>Id</p>
+                <p>Dato</p>
+            </div>
+            <div class="allEquipment" id="allEquipment">
+    
+            </div>
+        </div>
+        <p>Skriv inn nødvendig informasjon</p>
+        <input type="text" placeholder="Ansvarlig lærer" id="ansvarlig" />
+        <input type="text" placeholder="Lånt av" id="låntaker" />
+        <div id="yesBtn">Lån</div>
+        <div id="noBtn">Tilbake</div>
+
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/utlånValgt.js"></script>
+    </body>
 </html>

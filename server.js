@@ -14,11 +14,11 @@ const Users = require("./models/Users");
 Users.init(sequelizeDB);
 Users.sync();
 
-const Elever = require("./models/Users");
+const Elever = require("./models/Elever");
 Elever.init(sequelizeDB);
 Elever.sync();
 
-const Lærere = require("./models/Users");
+const Lærere = require("./models/Lærere");
 Lærere.init(sequelizeDB);
 Lærere.sync();
 //{force: true} hvis jeg trenger det
@@ -53,7 +53,7 @@ app.get('/session', (req, res) => {
 
 app.get('/addUser/:username/:password', async (req, res) => {
   if (req.session.hasOwnProperty("user")) {
-    if (await Users.findOne({where: {name : req.params.username}}) != null) {
+    if (await Users.findOne({where: {name : req.params.username}}) == null) {
       Users.create({
         name: req.params.username,
         password: await bcrypt.hash(req.params.password, 10)
@@ -67,11 +67,10 @@ app.get('/addUser/:username/:password', async (req, res) => {
   }
 })
 
-app.get('/addElev/:username', async (req, res) => {
+app.get('/addStudent/:username', async (req, res) => {
   if (req.session.hasOwnProperty("user")) {
     Elever.create({
       name: req.params.username,
-      password: await bcrypt.hash(req.params.password, 10)
     });
     res.send({login: true});
   } else {
@@ -79,7 +78,7 @@ app.get('/addElev/:username', async (req, res) => {
   }
 })
 
-app.get('/addLærer/:username', async (req, res) => {
+app.get('/addTeacher/:username', async (req, res) => {
   if (req.session.hasOwnProperty("user")) {
     Lærere.create({
       name: req.params.username

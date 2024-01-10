@@ -24,11 +24,18 @@ window.addEventListener("load", async function () {
     document.getElementById("allEquipment").appendChild(html);
 
     document.getElementById("yesBtn").addEventListener("click", async function () {
+        let ansvarlig = document.getElementById("ansvarlig").value;
+        let låntaker = document.getElementById("låntaker").value;
+
+        if (ansvarlig == "" || låntaker == "") {
+            return;
+        }
+
         localStorage.removeItem("id");
         await fetch("/modify/" + id + "/utleid/true");
         await fetch("/modify/" + id + "/utlånsdato/" + date);
-        await fetch("/modify/" + id + "/ansvarlig/" + document.getElementById("ansvarlig").value);
-        await fetch("/modify/" + id + "/låntaker/" + document.getElementById("låntaker").value);
+        await fetch("/modify/" + id + "/ansvarlig/" + ansvarlig);
+        await fetch("/modify/" + id + "/låntaker/" + låntaker);
         window.location.replace("/ferdig.html");
     });
 

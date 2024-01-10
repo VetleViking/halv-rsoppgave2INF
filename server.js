@@ -1,21 +1,93 @@
 const express = require('express')
+const session = require('express-session');
+const bcrypt = require('bcrypt');
 const app = express()
 const port = 3000
 const sequelizeDB = require("./database.js");
+const { json } = require('sequelize');
+
 const Utstyr = require("./models/Utstyr");
 Utstyr.init(sequelizeDB);
 Utstyr.sync();
+
 const Users = require("./models/Users");
 Users.init(sequelizeDB);
 Users.sync();
+
+const Elever = require("./models/Users");
+Elever.init(sequelizeDB);
+Elever.sync();
+
+const Lærere = require("./models/Users");
+Lærere.init(sequelizeDB);
+Lærere.sync();
 //{force: true} hvis jeg trenger det
 
 app.use(express.json());
 app.use(express.static('public'))
+app.use(session({
+  saveUninitialized: false,
+  resave: false,
+  secret: 'min hemmelige kode',
+  cookie: {maxAge: 1000 * 60 * 5},
+  rolling: true
+}));
 
 app.get('/login/:username/:password', async (req, res) => {
-  console.log(await Users.findOne({where: {name : req.params.username, password: req.params.password}}))
-  res.send(await Users.findOne({where: {name : req.params.username, password: req.params.password}}) != null ? true : false)
+  if (await Users.findOne({where: {name : req.params.username}}) != null) {
+    let user = await Users.findOne({where: {name : req.params.username}})
+    if (await bcrypt.compare(req.params.password, user.password)) {
+      req.session.user = user;
+      res.send({user: user, login: true});
+    } else {
+      res.send({user: user, login: false});
+    }
+  } else {
+    res.send({user: null, login: false});
+  }
+})
+
+app.get('/session', (req, res) => {
+  res.send(req.session);
+})
+
+app.get('/addUser/:username/:password', async (req, res) => {
+  if (req.session.hasOwnProperty("user")) {
+    if (await Users.findOne({where: {name : req.params.username}}) != null) {
+      Users.create({
+        name: req.params.username,
+        password: await bcrypt.hash(req.params.password, 10)
+      });
+      res.send({login: true});
+    } else {
+      res.send({login: true, exists: true});
+    }
+  } else {
+    res.send({login: false});
+  }
+})
+
+app.get('/addElev/:username', async (req, res) => {
+  if (req.session.hasOwnProperty("user")) {
+    Elever.create({
+      name: req.params.username,
+      password: await bcrypt.hash(req.params.password, 10)
+    });
+    res.send({login: true});
+  } else {
+    res.send({login: false});
+  }
+})
+
+app.get('/addLærer/:username', async (req, res) => {
+  if (req.session.hasOwnProperty("user")) {
+    Lærere.create({
+      name: req.params.username
+    });
+    res.send({login: true});
+  } else {
+    res.send({login: false});
+  }
 })
 
 app.post('/add', async (req, res) => {

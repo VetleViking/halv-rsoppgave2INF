@@ -36,3 +36,27 @@ function filterSearch() {
         }
     }
 }
+
+async function isLoggedIn() {
+    let response = await fetch("/session");
+
+    let data = await response.json();
+
+    console.log(data);
+
+    const user = data.user;
+
+    const loggedIn = data.hasOwnProperty("user");
+
+    console.log(loggedIn);
+
+    return loggedIn;
+}
+
+function onEnter(input, func = function() {console.log("No function given");}) {
+    input.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            func();
+        }
+    });
+}

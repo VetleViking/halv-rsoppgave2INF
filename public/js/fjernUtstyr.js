@@ -1,4 +1,10 @@
 window.addEventListener("load", async function () {
+    let loggedIn = await isLoggedIn();
+
+    if (!loggedIn) {
+        window.location.replace("/loginAdmin.html");
+    }
+
     let all = await fetch("/all");
 
     all = await all.json();
@@ -12,3 +18,4 @@ window.addEventListener("load", async function () {
         });
     });
 });
+

@@ -24,9 +24,17 @@
     
             </div>
         </div>
-        <p>Skriv inn nødvendig informasjon</p>
-        <input type="text" placeholder="Ansvarlig lærer" id="ansvarlig" />
-        <input type="text" placeholder="Lånt av" id="låntaker" />
+        <p>Legg inn nødvendig informasjon</p>
+        <div class="infoDiv">
+            <div class="information1">
+                <input type="text" placeholder="Ansvarlig lærer" id="ansvarlig" />
+                <div class="infoDropdown" id="teachersDiv"></div>
+            </div>
+            <div class="information2">
+                <input type="text" placeholder="Lånt av" id="låntaker" />
+                <div class="infoDropdown" id="studentsDiv"></div>
+            </div>
+        </div>
         <div id="yesBtn">Lån</div>
         <div id="noBtn">Tilbake</div>
 

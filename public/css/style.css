@@ -14,3 +14,21 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin: 0px 20px;
 }
+
+.infoDiv {
+    display: flex;
+    gap: 20px;
+}
+
+.infoDropdown {
+    position: absolute;
+    background-color: white;
+    width: 200px; 
+    display: none;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.infoDropdown p {
+    height: min-content;
+}

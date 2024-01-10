@@ -89,6 +89,14 @@ app.get('/addTeacher/:username', async (req, res) => {
   }
 })
 
+app.get('/allStudents', async (req, res) => {
+  res.send(await Elever.findAll());
+})
+
+app.get('/allTeachers', async (req, res) => {
+  res.send(await Lærere.findAll());
+})
+
 app.post('/add', async (req, res) => {
   Utstyr.create({
     name: req.body.name,

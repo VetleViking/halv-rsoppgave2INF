@@ -111,7 +111,11 @@ app.get('/get/:id', async (req, res) => {
 })
 
 app.get('/modify/:id/:field/:value', async (req, res) => {
-  await Utstyr.update({[req.params.field]: req.params.value}, {where: {id : req.params.id}})
+  if (req.params.value == "rm") {
+    await Utstyr.update({[req.params.field]: null}, {where: {id : req.params.id}})
+  } else {
+    await Utstyr.update({[req.params.field]: req.params.value}, {where: {id : req.params.id}})
+  }
   res.send("OK")
 })
 

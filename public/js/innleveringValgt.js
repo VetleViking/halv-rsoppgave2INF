@@ -37,11 +37,12 @@ window.addEventListener("load", async function () {
 
     document.getElementById("yesBtn").addEventListener("click", async function () {
         localStorage.removeItem("id");
+        
         await fetch("/modify/" + id + "/utleid/false");
-        await fetch("/modify/" + id + "/utlånsdato/ ");
-        await fetch("/modify/" + id + "/ansvarlig/ ");
-        await fetch("/modify/" + id + "/låntaker/ ");
-
+        await fetch("/modify/" + id + "/utlånsdato/rm");
+        await fetch("/modify/" + id + "/ansvarlig/rm");
+        await fetch("/modify/" + id + "/låntaker/rm");
+    
         localStorage.setItem("ferdigTilbake", "innlevering");
         localStorage.setItem("ferdigTilbakeText", "Innlevering");
         localStorage.setItem("ferdigText", "Utstyret er innlevert.");

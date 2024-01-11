@@ -32,3 +32,9 @@
 .infoDropdown p {
     height: min-content;
 }
+
+.errorMsg {
+    color: red;
+    z-index: 1;
+    position: relative;
+}

@@ -37,9 +37,12 @@ window.addEventListener("load", async function () {
     document.getElementById("yesBtn").addEventListener("click", async function () {
         localStorage.removeItem("id");
         await fetch("/modify/" + id + "/utleid/false");
-        await fetch("/modify/" + id + "/utlånsdato/");
-        await fetch("/modify/" + id + "/ansvarlig/");
-        await fetch("/modify/" + id + "/låntaker/");
+        await fetch("/modify/" + id + "/utlånsdato/ ");
+        await fetch("/modify/" + id + "/ansvarlig/ ");
+        await fetch("/modify/" + id + "/låntaker/ ");
+
+        localStorage.setItem("ferdigTilbake", "innlevering");
+        localStorage.setItem("ferdigText", "Utstyret er innlevert.");
         window.location.replace("/ferdig.html");
     });
 

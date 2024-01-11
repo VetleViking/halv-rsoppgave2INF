@@ -9,6 +9,8 @@ window.addEventListener("load", async function () {
     document.getElementById("yesBtn").addEventListener("click", async function () {
         localStorage.removeItem("id");
         await fetch("/delete/" + id);
+        localStorage.setItem("ferdigTilbake", "fjernUtstyr");
+        localStorage.setItem("ferdigText", "Utstyret er fjernet.");
         window.location.replace("/ferdig.html");
     });
 

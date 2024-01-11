@@ -1,6 +1,10 @@
 window.addEventListener("load", async function () {
     let id = localStorage.getItem("id");
 
+    if (id == null) {
+        window.location.replace("/utlån.html");
+    }
+
     let utstyr = await fetch("/get/" + id);
     utstyr = await utstyr.json();
 
@@ -71,45 +75,61 @@ async function loanOut() {
     let ansvarlig = document.getElementById("ansvarlig").value;
     let låntaker = document.getElementById("låntaker").value;
 
+    let id = localStorage.getItem("id");
+
+    let date = new Date();
+    date = date.toISOString();
+
+    //checks if teacher and student exists in db
     let allTeachers = await fetch("/allTeachers");
     allTeachers = await allTeachers.json();
 
-    console.log(allTeachers);
-
-    //Fortsdwet hetr ikke ferdtig
-
+    let teacherExists = false;
     allTeachers.forEach(function (teacher) {
         if (teacher.name == ansvarlig) {
-            console.log("Læreren finnes");
+            teacherExists = true;
+            return;
         }
     });
 
-    if (!allTeachers.includes(ansvarlig)) {
-        console.log("Læreren finnes ikke");
+    if (!teacherExists) {
+        document.getElementById("errorTeacher").innerHTML = "<p>Læreren finnes ikke.</p>";
         return;
     }
 
     let allStudents = await fetch("/allStudents");
     allStudents = await allStudents.json();
 
-    console.log(allStudents);
+    let studentExists = false;
+    allStudents.forEach(function (student) {
+        if (student.name == låntaker) {
+            studentExists = true;
+            return;
+        }
+    });
 
-    if (!allStudents.includes(låntaker)) {
-        console.log("Eleven finnes ikke");
+    if (!studentExists) {
+        document.getElementById("errorStudent").innerHTML = "<p>Eleven finnes ikke.</p>";
         return;
     }
 
+    //updates item in db
     localStorage.removeItem("id");
     await fetch("/modify/" + id + "/utleid/true");
     await fetch("/modify/" + id + "/utlånsdato/" + date);
     await fetch("/modify/" + id + "/ansvarlig/" + ansvarlig);
     await fetch("/modify/" + id + "/låntaker/" + låntaker);
+
+    localStorage.setItem("ferdigTilbake", "utlån");
+    localStorage.setItem("ferdigText", "Utlånet er registrert.");
     window.location.replace("/ferdig.html");
 }
 
 function filterDropdown(input, dropdown, items) {    
 
     input.addEventListener('focus', function() {
+        document.getElementById("errorTeacher").innerHTML = "";
+        document.getElementById("errorStudent").innerHTML = "";
         filterSearch(input, items);
         dropdown.style.display = 'block';
     });

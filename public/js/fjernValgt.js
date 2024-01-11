@@ -10,6 +10,7 @@ window.addEventListener("load", async function () {
         localStorage.removeItem("id");
         await fetch("/delete/" + id);
         localStorage.setItem("ferdigTilbake", "fjernUtstyr");
+        localStorage.setItem("ferdigTilbakeText", "Fjern utstyr");
         localStorage.setItem("ferdigText", "Utstyret er fjernet.");
         window.location.replace("/ferdig.html");
     });

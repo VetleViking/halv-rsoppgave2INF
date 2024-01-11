@@ -10,9 +10,10 @@ window.addEventListener("load", async function () {
         let html = document.createElement("div");
 
         html.innerHTML = `
-        <div class="listItem"><p>${element.name}</p></div>
-        <div class="listItem"><p>${element.id}</p></div>`;
+        <div class="listItemUtlån listItem"><p>${element.name}</p></div>
+        <div class="listItemUtlån listItem"><p>${element.id}</p></div>`;
 
+        html.classList.add("listDivUtlån");
         html.classList.add("listDiv");
 
         document.getElementById("allEquipment").appendChild(html);

@@ -28,6 +28,7 @@ async function addUser() {
     let password = document.getElementById("password").value;
 
     if (name == "" || password == "") {
+        document.getElementById("addErr").innerHTML = "Du må fylle ut alle feltene";
         return;
     }
 
@@ -35,23 +36,56 @@ async function addUser() {
 
     addUser = await addUser.json();
 
+    let addUserErr = document.getElementById("addErr");
     if (addUser.exists) {
-        console.log("Det finnes en bruker med samme navn allerede");
+        addUserErr.innerHTML = "Det finnes en bruker med samme navn allerede";
     } else if (addUser.login) {
-        console.log("Brukeren ble lagt til");
+        localStorage.setItem("ferdigTilbake", "admin");
+        localStorage.setItem("ferdigTilbakeText", "Admin");
+        localStorage.setItem("ferdigText", "Brukeren ble lagt til");
+        window.location.replace("/ferdig.html");
     } else {
-        console.log("Du er ikke logget inn");
+        addUserErr.innerHTML = "Du er ikke logget inn";
+        window.location.replace("/loginAdmin.html");
     }
 } 
 
 async function addElev() {
     let name = document.getElementById("studentName").value;
+    if (name == "") {
+        document.getElementById("addStudentErr").innerHTML = "Du må skrive inn et navn";
+        return;
+    } 
 
     let addUser = await fetch("/addStudent/" + name);
+    addUser = await addUser.json();
+
+    if (addUser.login) {
+        localStorage.setItem("ferdigTilbake", "admin");
+        localStorage.setItem("ferdigTilbakeText", "Admin");
+        localStorage.setItem("ferdigText", "Eleven ble lagt til");
+        window.location.replace("/ferdig.html");
+    } else {
+        window.location.replace("/loginAdmin.html");
+    }
 }
 
 async function addLærer() {
     let name = document.getElementById("teacherName").value;
+    if (name == "") {
+        document.getElementById("addTeacherErr").innerHTML = "Du må skrive inn et navn";
+        return;
+    } 
 
     let addUser = await fetch("/addTeacher/" + name);
+    addUser = await addUser.json();
+
+    if (addUser.login) {
+        localStorage.setItem("ferdigTilbake", "admin");
+        localStorage.setItem("ferdigTilbakeText", "Admin");
+        localStorage.setItem("ferdigText", "Læreren ble lagt til");
+        window.location.replace("/ferdig.html");
+    } else {
+        window.location.replace("/loginAdmin.html");
+    }
 }

@@ -7,21 +7,57 @@
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/reset.css" />
     </head>
-    <body>
-        <a href="index.html">Index</a>
-        <a href="innlevering.html">Innlevering</a>
-        <a href="utlån.html">Utlån</a>
-        <a href="loginAdmin.html">Legg til / fjern utstyr </a>
-        </br>
-        <input type="text" id="searchInput" onkeyup="filterSearch()" placeholder="Søk...">
-        <div class="removeItemsBox">
-            <div class="headerRemoveItems">
-                <p>Navn</p>
-                <p>Id</p>
-                <p>Utlånt</p>
+    <body class="body">
+        <section class="headerSection">
+            <div class="headerTop">
+                <a class="btnLiten" href="loginAdmin.html">Admin</a>
             </div>
-            <div class="allEquipment" id="allEquipment"></div>
-        </div>
+            <div class="headerBody">
+                <a href="index.html">
+                    <img href="index.html" src="img/logo.svg" alt="Logo" class="headerImg" />
+                </a>
+                <div class="headerNavBtns">
+                    <a class="btn" href="innlevering.html">Innlevering</a>
+                    <a class="btn" href="utlån.html">Utlån</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content contentFU">
+            <input type="text" id="searchInput" onkeyup="filterSearch()" placeholder="Søk...">
+            <div class="removeItemsBox">
+                <div class="headerFU">
+                    <p>Navn</p>
+                    <p>Id</p>
+                    <p>Utlånt</p>
+                </div>
+                <div class="allEquipment" id="allEquipment"></div>
+            </div>
+        </section>
+
+        <section class="footerSection">
+            <div class="footer">
+                <div class="contactDiv">
+                    <div class="contactTitleDiv">
+                        <p class="contactTitle">Kontakt oss</p>
+                    </div>
+                    <div class="contactInfoDiv">
+                        <div class="contactInfo">
+                            <p class="contactInfoTitle">Kontaktinformasjon</p>
+                            <p class="contactInfoText">Telefon: 12345678</p>
+                            <p class="contactInfoText">Epost: eksempel@innlandetfylke.no</p>
+                        </div>
+                        <div class="visitInfo">
+                            <p class="contactInfoTitle">Besøksadresse</p>
+                            <p class="contactInfoText">Ringgata 235</p>
+                            <p class="contactInfoText">2315 Hamar</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="img/footer-logo.svg" alt="Logo" class="footerImg" />
+            </div>
+            <img src="img/footer-bg.svg" alt="Wave" class="footerImgBg" />
+        </section>
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/fjernUtstyr.js"></script>
     </body>

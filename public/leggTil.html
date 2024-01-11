@@ -7,20 +7,58 @@
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/reset.css" />
     </head>
-    <body>
-        <a href="index.html">Index</a>
-        <a href="innlevering.html">Innlevering</a>
-        <a href="utlån.html">Utlån</a>
-        <a href="loginAdmin.html">Legg til / fjern utstyr </a>
-        <div>
-            <p>Navn</p>
-            <input type="text" placeholder="Navn på utstyr" id="name" />
-            <p>Hylle</p>
-            <input type="text" placeholder="Hylle oppgitt i tall" id="shelf" pattern="[0-9]*"/>
-            <p>Rad</p>
-            <input type="text" placeholder="Rad oppgitt i tall" id="row" pattern="[0-9]*"/>
-            <div id="btn">Legg til</div>
-        </div>
+    <body class="body">
+        <section class="headerSection">
+            <div class="headerTop">
+                <a class="btnLiten" href="loginAdmin.html">Admin</a>
+            </div>
+            <div class="headerBody">
+                <a href="index.html">
+                    <img href="index.html" src="img/logo.svg" alt="Logo" class="headerImg" />
+                </a>
+                <div class="headerNavBtns">
+                    <a class="btn" href="innlevering.html">Innlevering</a>
+                    <a class="btn" href="utlån.html">Utlån</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content contentAdd">
+            <div class="addDiv">
+                <p class="loginTxt">Navn</p>
+                <input class="inputAdd" type="text" placeholder="Navn på utstyr" id="name" />
+                <p class="loginTxt">Hylle</p>
+                <input class="inputAdd" type="number" placeholder="Hylle oppgitt i tall" id="shelf"/>
+                <p class="loginTxt">Rad</p>
+                <input class="inputAdd" type="number" placeholder="Rad oppgitt i tall" id="row" pattern="[0-9]*"/>
+                <div class="btn" id="btn">Legg til</div>
+                <div class="errorMsg" id="errorMsg"></div>
+            </div>
+        </section>
+
+        <section class="footerSection">
+            <div class="footer">
+                <div class="contactDiv">
+                    <div class="contactTitleDiv">
+                        <p class="contactTitle">Kontakt oss</p>
+                    </div>
+                    <div class="contactInfoDiv">
+                        <div class="contactInfo">
+                            <p class="contactInfoTitle">Kontaktinformasjon</p>
+                            <p class="contactInfoText">Telefon: 12345678</p>
+                            <p class="contactInfoText">Epost: eksempel@innlandetfylke.no</p>
+                        </div>
+                        <div class="visitInfo">
+                            <p class="contactInfoTitle">Besøksadresse</p>
+                            <p class="contactInfoText">Ringgata 235</p>
+                            <p class="contactInfoText">2315 Hamar</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="img/footer-logo.svg" alt="Logo" class="footerImg" />
+            </div>
+            <img src="img/footer-bg.svg" alt="Wave" class="footerImgBg" />
+        </section>
 
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/leggTil.js"></script>

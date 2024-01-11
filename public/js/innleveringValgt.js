@@ -31,6 +31,7 @@ window.addEventListener("load", async function () {
     <div class="listItem"><p>${utstyr.rad}</p></div>`;
 
     placeOn.classList.add("listDiv");
+    placeOn.classList.add("listDivIV2");
 
     document.getElementById("placeOn").appendChild(placeOn);
 
@@ -42,6 +43,7 @@ window.addEventListener("load", async function () {
         await fetch("/modify/" + id + "/låntaker/ ");
 
         localStorage.setItem("ferdigTilbake", "innlevering");
+        localStorage.setItem("ferdigTilbakeText", "Innlevering");
         localStorage.setItem("ferdigText", "Utstyret er innlevert.");
         window.location.replace("/ferdig.html");
     });

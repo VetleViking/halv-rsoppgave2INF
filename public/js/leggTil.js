@@ -12,6 +12,7 @@ document.getElementById("btn").addEventListener("click", async function () {
     let row = document.getElementById("row").value;
 
     if (name == "" || shelf == "" || row == "") {
+        document.getElementById("errorMsg").innerHTML = "Du må fylle ut alle feltene";
         return;
     }
 
@@ -28,5 +29,8 @@ document.getElementById("btn").addEventListener("click", async function () {
     });
 
     utstyr = await utstyr.json();
-    console.log(utstyr.name, utstyr.hylle, utstyr.rad);
+    localStorage.setItem("ferdigTilbake", "leggTil");
+    localStorage.setItem("ferdigTilbakeText", "Legg til utstyr");
+    localStorage.setItem("ferdigText", "Utstyret ble lagt til");
+    window.location.replace("/ferdig.html");
 });

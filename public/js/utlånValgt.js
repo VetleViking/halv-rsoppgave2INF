@@ -19,11 +19,12 @@ window.addEventListener("load", async function () {
     let html = document.createElement("div");
 
     html.innerHTML = `
-    <div class="listItem"><p>${utstyr.name}</p></div>
-    <div class="listItem"><p>${utstyr.id}</p></div>
-    <div class="listItem"><p>${day + "." + month + "." + year}</p></div>`;
+    <div class="listItem listItemUV"><p>${utstyr.name}</p></div>
+    <div class="listItem listItemUV"><p>${utstyr.id}</p></div>
+    <div class="listItem listItemUV"><p>${day + "." + month + "." + year}</p></div>`;
 
     html.classList.add("listDiv");
+    html.classList.add("listDivUV");
 
     document.getElementById("allEquipment").appendChild(html);
 
@@ -121,6 +122,7 @@ async function loanOut() {
     await fetch("/modify/" + id + "/låntaker/" + låntaker);
 
     localStorage.setItem("ferdigTilbake", "utlån");
+    localStorage.setItem("ferdigTilbakeText", "Utlån");
     localStorage.setItem("ferdigText", "Utlånet er registrert.");
     window.location.replace("/ferdig.html");
 }

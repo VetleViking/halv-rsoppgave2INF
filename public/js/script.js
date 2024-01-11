@@ -12,8 +12,9 @@ function createListItem(element) {
     <div class="listItem"><p>${element.name}</p></div>
     <div class="listItem"><p>${element.id}</p></div>
     <div class="listItem"><p>${utleid}</p></div>`
-
+    
     html.classList.add("listDiv");
+    html.classList.add("listDiv3");
 
     document.getElementById("allEquipment").appendChild(html);
     return html;
@@ -42,18 +43,14 @@ async function isLoggedIn() {
 
     let data = await response.json();
 
-    console.log(data);
-
     const user = data.user;
 
     const loggedIn = data.hasOwnProperty("user");
 
-    console.log(loggedIn);
-
     return loggedIn;
 }
 
-function onEnter(input, func = function() {console.log("No function given");}) {
+function onEnter(input, func = function() {return;}) {
     input.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             func();

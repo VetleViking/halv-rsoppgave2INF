@@ -7,39 +7,80 @@
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/reset.css" />
     </head>
-    <body>
-        <a href="index.html">Index</a>
-        <a href="innlevering.html">Innlevering</a>
-        <a href="utlån.html">Utlån</a>
-        <a href="loginAdmin.html">Legg til / fjern utstyr </a>
+    <body class="body">
+        <section class="headerSection">
+            <div class="headerTop">
+                <a class="btnLiten" href="loginAdmin.html">Admin</a>
+            </div>
+            <div class="headerBody">
+                <a href="index.html">
+                    <img href="index.html" src="img/logo.svg" alt="Logo" class="headerImg" />
+                </a>
+                <div class="headerNavBtns">
+                    <a class="btn" href="innlevering.html">Innlevering</a>
+                    <a class="btn" href="utlån.html">Utlån</a>
+                </div>
+            </div>
+        </section>
 
-        <p>Er dette riktig?</p>
-        <div class="removeItemsBox">
-            <div class="headerRemoveItems">
-                <p>Navn</p>
-                <p>Id</p>
-                <p>Dato</p>
+        <section class="content contentUV">
+            <div>
+                <div class="utlånValgtTitle">
+                    <p>Er dette riktig?</p>
+                </div>
+                <div class="utlånBox">
+                    <div class="headerUV">
+                        <p>Navn</p>
+                        <p>Id</p>
+                        <p>Dato</p>
+                    </div>
+                    <div class="allEquipmentUV" id="allEquipment"></div>
+                </div>
+                <div class="informationUV">
+                    <p class="informationUVTitle">Legg inn nødvendig informasjon</p>
+                    <div class="infoDiv">
+                        <div class="information1">
+                            <input type="text" placeholder="Ansvarlig lærer" id="ansvarlig" />
+                            <div class="infoDropdown" id="teachersDiv"></div>
+                            <div class="errorMsg" id="errorTeacher"></div>
+                        </div>
+                        <div class="information2">
+                            <input type="text" placeholder="Lånt av" id="låntaker" />
+                            <div class="infoDropdown" id="studentsDiv"></div>
+                            <div class="errorMsg" id="errorStudent"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btnDivUtlån">
+                    <div class="btn" id="yesBtn">Lån</div>
+                    <div class="btn" id="noBtn">Tilbake</div>
+                </div>
             </div>
-            <div class="allEquipment" id="allEquipment">
-    
+        </section>
+        
+        <section class="footerSection">
+            <div class="footer">
+                <div class="contactDiv">
+                    <div class="contactTitleDiv">
+                        <p class="contactTitle">Kontakt oss</p>
+                    </div>
+                    <div class="contactInfoDiv">
+                        <div class="contactInfo">
+                            <p class="contactInfoTitle">Kontaktinformasjon</p>
+                            <p class="contactInfoText">Telefon: 12345678</p>
+                            <p class="contactInfoText">Epost: eksempel@innlandetfylke.no</p>
+                        </div>
+                        <div class="visitInfo">
+                            <p class="contactInfoTitle">Besøksadresse</p>
+                            <p class="contactInfoText">Ringgata 235</p>
+                            <p class="contactInfoText">2315 Hamar</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="img/footer-logo.svg" alt="Logo" class="footerImg" />
             </div>
-        </div>
-        <p>Legg inn nødvendig informasjon</p>
-        <div class="infoDiv">
-            <div class="information1">
-                <input type="text" placeholder="Ansvarlig lærer" id="ansvarlig" />
-                <div class="infoDropdown" id="teachersDiv"></div>
-                <div class="errorMsg" id="errorTeacher"></div>
-            </div>
-            <div class="information2">
-                <input type="text" placeholder="Lånt av" id="låntaker" />
-                <div class="infoDropdown" id="studentsDiv"></div>
-                <div class="errorMsg" id="errorStudent"></div>
-            </div>
-        </div>
-        <div id="yesBtn">Lån</div>
-        <div id="noBtn">Tilbake</div>
-
+            <img src="img/footer-bg.svg" alt="Wave" class="footerImgBg" />
+        </section>
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/utlånValgt.js"></script>
     </body>

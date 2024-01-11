@@ -1,13 +1,15 @@
 window.addEventListener("load", async function () {
     let text = this.localStorage.getItem("ferdigText");
+    
 
     if (text != null) {
         document.getElementById("ferdigText").innerHTML = text;
     }
 
     let back = this.localStorage.getItem("ferdigTilbake");
-
-    if (back != null) {
+    let backText = this.localStorage.getItem("ferdigTilbakeText");
+    
+    if (back != null && backText != null) {
         tilbakeKnapp = document.getElementById("ferdigTilbake");
 
         tilbakeKnapp.addEventListener("click", function () {
@@ -15,7 +17,7 @@ window.addEventListener("load", async function () {
         });
 
         back = back.charAt(0).toUpperCase() + back.slice(1);
-        tilbakeKnapp.innerHTML += back;
+        tilbakeKnapp.innerHTML += backText;
     }
 
     document.getElementById("ferdigHjem").addEventListener("click", function () {

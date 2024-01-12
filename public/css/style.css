@@ -23,8 +23,8 @@
     background-color: white;
     width: 200px;
     display: none;
-    height: 200px;
     overflow-y: auto;
+    max-height: 200px;
 }
 
 .infoDropdown p {

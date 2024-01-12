@@ -21,7 +21,7 @@
 .infoDropdown {
     position: absolute;
     background-color: white;
-    width: 200px; 
+    width: 200px;
     display: none;
     height: 200px;
     overflow-y: auto;
@@ -37,8 +37,9 @@
     position: relative;
 }
 
-
-
+.btnglemt {
+    margin-top: 10px;
+}
 
 /* Header */
 
@@ -46,7 +47,7 @@
     position: sticky;
     position: -webkit-sticky;
     top: -35px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
 }
 
@@ -56,7 +57,7 @@
     justify-content: end;
     align-items: center;
     padding: 5px 15px;
-    background-color: #009D4F;
+    background-color: #009d4f;
 }
 
 .headerBody {
@@ -64,8 +65,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 15px;
-    background-color: #CFD2D3;
-    border-bottom: 10px solid #009D4F;
+    background-color: #cfd2d3;
+    border-bottom: 10px solid #009d4f;
 }
 
 .headerImg {
@@ -76,8 +77,6 @@
     display: flex;
     gap: 20px;
 }
-
-
 
 /* footer */
 
@@ -95,7 +94,7 @@
     align-items: center;
     padding: 25px;
     background-color: #005850;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .contactDiv {
@@ -152,7 +151,7 @@
 
 .content {
     flex-grow: 1;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -167,7 +166,7 @@
     max-width: 400px;
     text-align: center;
     color: black;
-    background-color: #009D4F;
+    background-color: #009d4f;
     transition: 200ms ease-in-out;
 }
 
@@ -311,7 +310,8 @@
 }
 
 .teacher,
-.student {
+.student,
+.user {
     padding: 5px;
     border: 1px solid black;
 }
@@ -327,10 +327,10 @@
 
 .headerInn {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.headerInn p{
+.headerInn p {
     font-size: 20px;
     padding: 5px;
 }
@@ -391,7 +391,7 @@
 
 .loginDiv {
     padding: 20px;
-    background-color: #CFD2D3;
+    background-color: #cfd2d3;
     border-radius: 20px;
 }
 
@@ -430,7 +430,7 @@ input {
 .addDiv {
     height: min-content;
     padding: 20px;
-    background-color: #CFD2D3;
+    background-color: #cfd2d3;
     border-radius: 20px;
 }
 
@@ -483,4 +483,11 @@ input {
 .ferdig {
     text-align: center;
     font-size: 24px;
+}
+
+.BtnsAdmin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }

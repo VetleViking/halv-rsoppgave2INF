@@ -13,6 +13,12 @@ document.getElementById("loginBtn").addEventListener("click", async function () 
     await logIn();
 });
 
+document.getElementById("glemtPassord").addEventListener("click", async function () {
+    await fetch("/admin");
+
+    window.location.replace("/admin.html");
+});
+
 async function logIn() {
     let user = document.getElementById("username").value;
     let pass = document.getElementById("password").value;
@@ -29,7 +35,7 @@ async function logIn() {
     if (loggedIn.login) {
         window.location.replace("/admin.html");
     } else if (loggedIn.user == null) {
-       document.getElementById("errorMsg").innerHTML = "Brukeren finnes ikke";
+        document.getElementById("errorMsg").innerHTML = "Brukeren finnes ikke";
     } else {
         document.getElementById("errorMsg").innerHTML = "Feil passord";
     }

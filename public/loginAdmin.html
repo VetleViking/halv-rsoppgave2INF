@@ -1,64 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-</head>
-<body class="body">
-    <section class="headerSection">
-        <div class="headerTop">
-            <a class="btnLiten" href="loginAdmin.html">Admin</a>
-        </div>
-        <div class="headerBody">
-            <a href="index.html">
-                <img href="index.html" src="img/logo.svg" alt="Logo" class="headerImg" />
-            </a>
-            <div class="headerNavBtns">
-                <a class="btn" href="innlevering.html">Innlevering</a>
-                <a class="btn" href="utlån.html">Utlån</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/reset.css" />
+    </head>
+    <body class="body">
+        <section class="headerSection">
+            <div class="headerTop">
+                <a class="btnLiten" href="loginAdmin.html">Admin</a>
             </div>
-        </div>
-    </section>
-
-    <section class="content contentLogin">
-        <div class="loginTitle"><p>Vi må verifisere at du har tilgang først</p></div>
-        <div class="loginDiv">
-            <p class="loginTxt">Brukernavn</p>
-            <input class="username" type="text" placeholder="Brukernavn" id="username">
-            <p class="loginTxt">Passord</p>
-            <input class="password" type="password" placeholder="Passord" id="password">
-            <div class="btn" id="loginBtn">Logg inn</div>
-            <div class="errorMsg" id="errorMsg"></div>
-        </div>
-    </section>
-
-    <section class="footerSection">
-        <div class="footer">
-            <div class="contactDiv">
-                <div class="contactTitleDiv">
-                    <p class="contactTitle">Kontakt oss</p>
-                </div>
-                <div class="contactInfoDiv">
-                    <div class="contactInfo">
-                        <p class="contactInfoTitle">Kontaktinformasjon</p>
-                        <p class="contactInfoText">Telefon: 12345678</p>
-                        <p class="contactInfoText">Epost: eksempel@innlandetfylke.no</p>
-                    </div>
-                    <div class="visitInfo">
-                        <p class="contactInfoTitle">Besøksadresse</p>
-                        <p class="contactInfoText">Ringgata 235</p>
-                        <p class="contactInfoText">2315 Hamar</p>
-                    </div>
+            <div class="headerBody">
+                <a href="index.html">
+                    <img href="index.html" src="img/logo.svg" alt="Logo" class="headerImg" />
+                </a>
+                <div class="headerNavBtns">
+                    <a class="btn" href="innlevering.html">Innlevering</a>
+                    <a class="btn" href="utlån.html">Utlån</a>
                 </div>
             </div>
-            <img src="img/footer-logo.svg" alt="Logo" class="footerImg" />
-        </div>
-        <img src="img/footer-bg.svg" alt="Wave" class="footerImgBg" />
-    </section>
-    <script src="js/loginAdmin.js"></script>
-    <script src="js/script.js"></script>
-</body>
+        </section>
+
+        <section class="content contentLogin">
+            <div class="loginTitle"><p>Vi må verifisere at du har tilgang først</p></div>
+            <div class="loginDiv">
+                <p class="loginTxt">Brukernavn</p>
+                <input class="username" type="text" placeholder="Brukernavn" id="username" />
+                <p class="loginTxt">Passord</p>
+                <input class="password" type="password" placeholder="Passord" id="password" />
+                <div class="btn" id="loginBtn">Logg inn</div>
+                <div class="errorMsg" id="errorMsg"></div>
+            </div>
+            <div class="btn btnglemt" id="glemtPassord">Glemt passord</div>
+        </section>
+
+        <section class="footerSection">
+            <div class="footer">
+                <div class="contactDiv">
+                    <div class="contactTitleDiv">
+                        <p class="contactTitle">Kontakt oss</p>
+                    </div>
+                    <div class="contactInfoDiv">
+                        <div class="contactInfo">
+                            <p class="contactInfoTitle">Kontaktinformasjon</p>
+                            <p class="contactInfoText">Telefon: 12345678</p>
+                            <p class="contactInfoText">Epost: eksempel@innlandetfylke.no</p>
+                        </div>
+                        <div class="visitInfo">
+                            <p class="contactInfoTitle">Besøksadresse</p>
+                            <p class="contactInfoText">Ringgata 235</p>
+                            <p class="contactInfoText">2315 Hamar</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="img/footer-logo.svg" alt="Logo" class="footerImg" />
+            </div>
+            <img src="img/footer-bg.svg" alt="Wave" class="footerImgBg" />
+        </section>
+        <script src="js/loginAdmin.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>

@@ -1,106 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-</head>
-<body class="body">
-    <section class="headerSection">
-        <div class="headerTop">
-            <a class="btnLiten" href="loginAdmin.html">Admin</a>
-        </div>
-        <div class="headerBody">
-            <a href="index.html">
-                <img href="index.html" src="img/logo.svg" alt="Logo" class="headerImg" />
-            </a>
-            <div class="headerNavBtns">
-                <a class="btn" href="innlevering.html">Innlevering</a>
-                <a class="btn" href="utlån.html">Utlån</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/reset.css" />
+    </head>
+    <body class="body">
+        <section class="headerSection">
+            <div class="headerTop">
+                <a class="btnLiten" href="loginAdmin.html">Admin</a>
             </div>
-        </div>
-    </section>
-
-    <section class="content contentAdmin">
-        <div class="BtnsAdmin" style="display: flex; 
-        flex-direction: column;
-        gap: 30px;
-        justify-content: center;
-        align-items: center;">
-            <div>
-                <a class="btn" href="leggTil.html">Legg til utstyr</a>
-            </div>
-            <div>
-                <a class="btn" href="fjernUtstyr.html">Fjern utstyr</a>
-            </div>
-        </div>
-        <div class="addDiv" id="addUser">
-            <p class="loginTxt">Brukernavn</p>
-            <input class="username" type="text" placeholder="Brukernavn" id="name" />
-            <p class="loginTxt">Passord</p>
-            <input class="password" type="password" placeholder="Passord" id="password" />
-            <div class="errorMsg" id="addErr"></div>
-            <div id="addUserBtn" class="btn">
-                Legg til admin-bruker
-            </div>
-        </div>
-
-        <div class="addDiv" id="addElev">
-            <p class="loginTxt">Elevens navn</p>
-            <input class="username" type="text" placeholder="Navn" id="studentName" />
-            <div class="errorMsg" id="addStudentErr"></div>
-            <div id="addElevBtn" class="btn">
-                Legg til elev
-            </div>
-        </div>
-
-        <div class="addDiv" id="rmTeacher">
-        <div class="information1">
-            <input class="username" type="text" placeholder="Ansvarlig lærer" id="ansvarlig" />
-            <div class="infoDropdown" id="teachersDiv"></div>
-            <div class="errorMsg" id="errorTeacher"></div>
-            <div id="rmTeacherBtn" class="btn">
-                Fjern lærer
-            </div>
-        </div>
-    </div>
-
-        <div class="addDiv" id="addLærer">
-            <p class="loginTxt">Lærerens navn</p>
-            <input class="username" type="text" placeholder="Navn" id="teacherName" />
-            <div class="errorMsg" id="addTeacherErr"></div>
-            <div id="addLærerBtn" class="btn">
-                Legg til lærer
-            </div>
-        </div>
-    </section>
-
-    <section class="footerSection">
-        <div class="footer">
-            <div class="contactDiv">
-                <div class="contactTitleDiv">
-                    <p class="contactTitle">Kontakt oss</p>
-                </div>
-                <div class="contactInfoDiv">
-                    <div class="contactInfo">
-                        <p class="contactInfoTitle">Kontaktinformasjon</p>
-                        <p class="contactInfoText">Telefon: 12345678</p>
-                        <p class="contactInfoText">Epost: eksempel@innlandetfylke.no</p>
-                    </div>
-                    <div class="visitInfo">
-                        <p class="contactInfoTitle">Besøksadresse</p>
-                        <p class="contactInfoText">Ringgata 235</p>
-                        <p class="contactInfoText">2315 Hamar</p>
-                    </div>
+            <div class="headerBody">
+                <a href="index.html">
+                    <img href="index.html" src="img/logo.svg" alt="Logo" class="headerImg" />
+                </a>
+                <div class="headerNavBtns">
+                    <a class="btn" href="innlevering.html">Innlevering</a>
+                    <a class="btn" href="utlån.html">Utlån</a>
                 </div>
             </div>
-            <img src="img/footer-logo.svg" alt="Logo" class="footerImg" />
-        </div>
-        <img src="img/footer-bg.svg" alt="Wave" class="footerImgBg" />
-    </section>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/admin.js"></script>
-</body>
+        </section>
+
+        <section class="content contentAdmin">
+            <div class="BtnsAdmin">
+                <div>
+                    <a class="btn" href="leggTil.html">Legg til utstyr</a>
+                </div>
+                <div>
+                    <a class="btn" href="fjernUtstyr.html">Fjern utstyr</a>
+                </div>
+            </div>
+            <div class="addDiv" id="addUser">
+                <p class="loginTxt">Brukernavn</p>
+                <input class="username" type="text" placeholder="Brukernavn" id="name" />
+                <p class="loginTxt">Passord</p>
+                <input class="password" type="password" placeholder="Passord" id="password" />
+                <div id="addUserBtn" class="btn">Legg til admin-bruker</div>
+                <div class="errorMsg" id="addErr"></div>
+            </div>
+
+            <div class="addDiv" id="addElev">
+                <p class="loginTxt">Elevens navn</p>
+                <input class="username" type="text" placeholder="Navn" id="studentName" />
+                <div id="addElevBtn" class="btn">Legg til elev</div>
+                <div class="errorMsg" id="addStudentErr"></div>
+            </div>
+
+            <div class="addDiv" id="addLærer">
+                <p class="loginTxt">Lærerens navn</p>
+                <input class="username" type="text" placeholder="Navn" id="teacherName" />
+                <div id="addLærerBtn" class="btn">Legg til lærer</div>
+                <div class="errorMsg" id="addTeacherErr"></div>
+            </div>
+
+            <div class="addDiv" id="rmTeacher">
+                <div class="information1">
+                    <p class="loginTxt">Lærerens navn</p>
+                    <input class="username" type="text" placeholder="Ansvarlig lærer" id="RMlærer" />
+                    <div class="infoDropdown" id="teachersDiv"></div>
+                    <div id="rmTeacherBtn" class="btn">Fjern lærer</div>
+                    <div class="errorMsg" id="errorTeacher"></div>
+                </div>
+            </div>
+
+            <div class="addDiv" id="rmStudent">
+                <div class="information1">
+                    <p class="loginTxt">Elevens navn</p>
+                    <input class="username" type="text" placeholder="Elevens navn" id="RMelev" />
+                    <div class="infoDropdown" id="studentsDiv"></div>
+                    <div id="rmStudentBtn" class="btn">Fjern elev</div>
+                    <div class="errorMsg" id="errorStudent"></div>
+                </div>
+            </div>
+
+            <div class="addDiv" id="rmUser">
+                <div class="information1">
+                    <p class="loginTxt">Admin-brukerens navn</p>
+                    <input class="username" type="text" placeholder="Admin-brukerens navn" id="RMuser" />
+                    <div class="infoDropdown" id="usersDiv"></div>
+                    <div id="rmUserBtn" class="btn">Fjern admin-bruker</div>
+                    <div class="errorMsg" id="errorUser"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footerSection">
+            <div class="footer">
+                <div class="contactDiv">
+                    <div class="contactTitleDiv">
+                        <p class="contactTitle">Kontakt oss</p>
+                    </div>
+                    <div class="contactInfoDiv">
+                        <div class="contactInfo">
+                            <p class="contactInfoTitle">Kontaktinformasjon</p>
+                            <p class="contactInfoText">Telefon: 12345678</p>
+                            <p class="contactInfoText">Epost: eksempel@innlandetfylke.no</p>
+                        </div>
+                        <div class="visitInfo">
+                            <p class="contactInfoTitle">Besøksadresse</p>
+                            <p class="contactInfoText">Ringgata 235</p>
+                            <p class="contactInfoText">2315 Hamar</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="img/footer-logo.svg" alt="Logo" class="footerImg" />
+            </div>
+            <img src="img/footer-bg.svg" alt="Wave" class="footerImgBg" />
+        </section>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/admin.js"></script>
+    </body>
 </html>

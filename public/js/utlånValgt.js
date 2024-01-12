@@ -132,7 +132,7 @@ function filterDropdown(input, dropdown, items) {
     input.addEventListener('focus', function() {
         document.getElementById("errorTeacher").innerHTML = "";
         document.getElementById("errorStudent").innerHTML = "";
-        filterSearch(input, items);
+        filterSearch2(input, items);
         dropdown.style.display = 'block';
     });
 
@@ -144,7 +144,7 @@ function filterDropdown(input, dropdown, items) {
     });
 
     input.addEventListener('keyup', function() {
-        filterSearch(input, items);
+        filterSearch2(input, items);
     });
 
     items.forEach(function(item) {
@@ -155,7 +155,7 @@ function filterDropdown(input, dropdown, items) {
     });
 }
 
-function filterSearch(input, items) {
+function filterSearch2(input, items) {
     let search = input.value.toLowerCase();
     items.forEach(function(item) {
         let text = item.textContent.toLowerCase();
